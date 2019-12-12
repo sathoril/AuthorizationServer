@@ -1,0 +1,147 @@
+
+/* You can add global styles to this file, and also import other style files */
+$white: #ffffff;
+$blue: #0469bf;
+$blue-2: #034D8C;
+$dark-blue-1: #01233F;
+$dark-blue-2: #142C3F;
+$light-blue: #418BCA;
+
+$theme-colors: (
+    "primary": $blue,
+    // "primary":black
+    "blue-2": $blue-2,
+    "dark-blue-1": $dark-blue-1,
+    "dark-blue-2": $dark-blue-2,
+    "light-blue": $light-blue
+);
+
+$table-head-bg: $blue;
+$table-head-color: $white;
+
+$dropdown-link-active-color: $white !important;
+
+$nav-pills-link-active-bg: $blue-2;
+
+$link-color-dark: $blue-2;
+$link-hover-color-dark:          darken($blue-2, 15%) !default;
+
+.modal-header{
+    background-color: $blue-2;
+    color: $white;
+}
+
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+
+
+
+* {
+    box-shadow: none !important;
+}
+
+td {
+    vertical-align: middle !important;
+}
+
+// h1, h2, h3, h4, h5 {
+//     color: #646565;
+// }
+
+.card {
+    margin-bottom: 1.5rem;
+}
+
+.card-body {
+    margin: 0.75rem;
+}
+
+.card-title {
+    text-align: center;
+}
+
+table {
+    width: 100%;
+}
+
+table thead a, table thead a:visited, table thead a:hover, table thead a:focus, table thead a:active {
+    color: #FFF;
+}
+
+table>thead {
+    // color: #FFF;
+    line-height: 2;
+    /* cursor: pointer; */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+table>tbody.selectable {
+    cursor:pointer;
+}
+
+.table {
+    .thead-dark-blue {
+      th {
+        color: $white;
+        background-color: $dark-blue-2;
+        border-color: $white;
+      }
+    }
+
+    .thead-blue-2 {
+      th {
+        color: $white;
+        background-color: $blue-2;
+        border-color: $white;
+      }
+    }
+}
+
+.custom-align-bottom {
+    position: absolute;
+    bottom: 0px;
+  }
+
+.selected-row {
+    background-color: #a1a2a4 !important;
+    border-color: #a1a2a4 !important;
+    color: $white !important;
+}
+
+app-paginacao {
+    margin: auto;
+}
+
+a.blue-2 {
+  color: $link-color-dark;
+    text-decoration: $link-decoration;
+    background-color: transparent; // Remove the gray background on active links in IE 10.
+    -webkit-text-decoration-skip: objects; // Remove gaps in links underline in iOS 8+ and Safari 8+.
+  
+    @include hover {
+      color: $link-hover-color-dark;
+    }
+}
+
+.align-center {
+    text-align: center;
+}
+
+.padding-bot-0 {
+    padding-bottom: 0px;
+}
+
+.padding-top-0 {
+    padding-top: 0px;
+}
+
+.mtop-0 {
+    margin-top: 0px;
+}
+
+.mbot-0 {
+    margin-bottom: 0px;
+}
