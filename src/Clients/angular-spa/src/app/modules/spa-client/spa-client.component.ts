@@ -10,6 +10,7 @@ export class SpaClientComponent implements OnInit {
 
   ngOnInit() {
     
+
   }
 
 }

@@ -12,10 +12,12 @@ import { OAuthModule, ValidationHandler, JwksValidationHandler } from 'angular-o
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpInterceptorService } from './shared/services/http-interceptor/http-interceptor.service';
 import { AutorizacaoProvider } from './shared/services/autorizacao-provider';
+import { AuthComponent } from './shared/components/auth/auth.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AuthComponent
   ],
   imports: [
     NgbModule,

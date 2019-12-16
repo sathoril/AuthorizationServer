@@ -4,6 +4,8 @@ import { LoginComponent } from './modules/login/login.component';
 import { SpaClientComponent } from './modules/spa-client/spa-client.component';
 import { AutorizacaoProvider } from './shared/services/autorizacao-provider';
 import { WeatherForecastComponent } from './modules/spa-client/weather-forecast/weather-forecast.component';
+import { AuthComponent } from './shared/components/auth/auth.component';
+import { AutenticacaoService } from './shared/services/autenticacao/autenticacao.service';
 
 
 const routes: Routes = [
@@ -17,12 +19,17 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
+    path: 'auth',
+    component: AuthComponent,
+    canActivate: [AutorizacaoProvider]
+  },
+  {
     path: 'spa-client',
     component: SpaClientComponent,
-    canActivateChild: [AutorizacaoProvider],
+    canActivate: [AutorizacaoProvider],
     children: [
       {
-        path:'weather-forecast',
+        path: 'weather-forecast',
         component: WeatherForecastComponent,
         canActivate: [AutorizacaoProvider]
       }
