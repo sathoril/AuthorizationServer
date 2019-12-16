@@ -18,10 +18,11 @@ export class MasterHeaderComponent implements OnInit {
     if (!claims) return null;
     
     this.nomeUsuario = claims["name"];
+    console.log(this.oauthService.getAccessToken())
   }
 
   sair(): void {
-    localStorage.setItem('token', '');
+    this.oauthService.logOut();
     this.router.navigateByUrl('/login');
   }
 }

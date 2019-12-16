@@ -2,6 +2,7 @@ import { Injectable, Inject, Optional } from '@angular/core';
 import { OAuthService, OAuthStorage, OAuthResourceServerErrorHandler, OAuthModuleConfig } from 'angular-oauth2-oidc';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { debug } from 'util';
 
 
 @Injectable({
@@ -13,12 +14,18 @@ export class HttpInterceptorService implements HttpInterceptor {
   }
 
   private checkUrl(url: string): boolean {
-    let found = this.moduleConfig.resourceServer.allowedUrls.find(u => url.startsWith(u));
-    return !!found;
+    if (this.moduleConfig.resourceServer.customUrlValidation) {
+      return this.moduleConfig.resourceServer.customUrlValidation(url);
+    }
+    
+    if (this.moduleConfig.resourceServer.allowedUrls) {
+      return !!this.moduleConfig.resourceServer.allowedUrls.find(u => url.startsWith(u));
+    }
+
+    return true;
   }
 
   public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    debugger;
     let url = req.url.toLowerCase();
 
     if (!this.moduleConfig) return next.handle(req);

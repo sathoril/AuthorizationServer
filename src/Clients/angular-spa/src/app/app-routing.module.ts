@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './modules/login/login.component';
 import { SpaClientComponent } from './modules/spa-client/spa-client.component';
+import { AutorizacaoProvider } from './shared/services/autorizacao-provider';
+import { WeatherForecastComponent } from './modules/spa-client/weather-forecast/weather-forecast.component';
 
 
 const routes: Routes = [
@@ -16,7 +18,15 @@ const routes: Routes = [
   },
   {
     path: 'spa-client',
-    component: SpaClientComponent
+    component: SpaClientComponent,
+    canActivateChild: [AutorizacaoProvider],
+    children: [
+      {
+        path:'weather-forecast',
+        component: WeatherForecastComponent,
+        canActivate: [AutorizacaoProvider]
+      }
+    ]
   }
 ];
 

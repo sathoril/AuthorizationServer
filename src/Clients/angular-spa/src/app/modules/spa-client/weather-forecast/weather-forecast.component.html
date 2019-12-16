@@ -1,0 +1,42 @@
+<div class="card">
+    <div class="card-header bg-blue-2">
+        <h1 class="col-11 text-light">
+            Listagem de Weather Forecast
+        </h1>
+    </div>
+    <div>
+        <div class="card-body m-0">
+            <div *ngIf="weatherForecast != undefined && weatherForecast != null && weatherForecast.length > 0">
+                <div class="form-row">
+                    <table class="table table-striped table-bordered table-sm">
+                        <thead class="thead-light">
+                            <tr>
+                                <th class="text-center">Weather Forecast</th>
+                                <th class="text-center" class="cursor-pointer">Date</th>
+                                <th class="text-center" class="cursor-pointer">Temperatura C</th>
+                                <th class="text-center" class="cursor-pointer">Temperatura F</th>
+                                <th class="text-center" class="cursor-pointer">Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let weather of weatherForecast">
+                                <td>
+                                    {{ weather.date }}
+                                </td>
+                                <td>
+                                    {{ weather.temperatureC }}
+                                </td>
+                                <td>
+                                    {{ weather.temperatureF }}
+                                </td>
+                                <td>
+                                    {{ weather.summary }}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

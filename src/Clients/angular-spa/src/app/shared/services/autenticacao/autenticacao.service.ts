@@ -1,26 +1,18 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { OAuthService } from 'angular-oauth2-oidc';
+import { Observable, of, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AutenticacaoService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private authService: OAuthService) { }
 
-  // private urlComApi = environment.urlComApi;
-  // private url =  environment.url;
 
-  // obterHeaders(): Headers {
-  //   const token = localStorage.getItem('token');
-  //       const headers = new Headers({ 'Content-Type': 'application/json' });
-  //       headers.append('Authorization', `Bearer ${token}`);
-  //       return headers;
-  // }
-
-  // descobrirSeUsuarioEstaLogado() : Observable<boolean>{
-  //   return this.http.get<boolean>(this.urlComApi + "login/DescobrirSeUsuarioEstaLogado");
-  // }
+  usuarioEstaAutenticado() : Observable<boolean>{
+    return new BehaviorSubject<boolean>(this.authService.hasValidAccessToken()).asObservable();
+  }
 }

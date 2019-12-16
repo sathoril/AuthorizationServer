@@ -6,10 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./spa-client.component.scss']
 })
 export class SpaClientComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

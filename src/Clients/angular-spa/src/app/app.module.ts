@@ -8,9 +8,10 @@ import { ConfigService } from './shared/base/config.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SpaClientComponent } from './modules/spa-client/spa-client.component';
 import { SpaClientModule } from './modules/spa-client/spa-client.module';
-import { OAuthModule } from 'angular-oauth2-oidc';
+import { OAuthModule, ValidationHandler, JwksValidationHandler } from 'angular-oauth2-oidc';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpInterceptorService } from './shared/services/http-interceptor/http-interceptor.service';
+import { AutorizacaoProvider } from './shared/services/autorizacao-provider';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,13 @@ import { HttpInterceptorService } from './shared/services/http-interceptor/http-
     provide: HTTP_INTERCEPTORS,
     useClass: HttpInterceptorService,
     multi: true
-  }],
+  },
+  {
+    provide: ValidationHandler,
+    useClass: JwksValidationHandler
+  },
+    AutorizacaoProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

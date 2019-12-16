@@ -27,6 +27,8 @@ import { AuthConfig } from 'angular-oauth2-oidc';
 
       showDebugInformation: true,
       requireHttps: 'remoteOnly',
+      oidc: false
+      
       
 
       // Not recommented:

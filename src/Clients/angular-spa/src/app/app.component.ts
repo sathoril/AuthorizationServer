@@ -10,6 +10,7 @@ import { authCodeFlowConfig } from 'src/environments/auth.config';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
   constructor(private oauthService: OAuthService) {
     this.configureOAuth();
   }
