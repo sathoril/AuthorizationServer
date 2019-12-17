@@ -7,22 +7,18 @@ import { OAuthService } from 'angular-oauth2-oidc';
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.scss']
 })
-export class AuthComponent implements AfterContentInit {
+export class AuthComponent {
   accessToken: string;
 
   constructor(private router: Router, private oauthService: OAuthService) {
-
-  }
-
-  ngAfterContentInit() {
-    // setTimeout(() => {
-    this.accessToken = this.oauthService.getAccessToken();
-      if (this.accessToken)
-        this.router.navigateByUrl('/spa-client');
-      else
-        this.router.navigateByUrl('');
-    // }, 6000);
-
+    setTimeout(() => {
+      debugger;
+      this.accessToken = this.oauthService.getAccessToken();
+        if (this.accessToken)
+          this.router.navigateByUrl('/spa-client');
+        else
+          this.router.navigateByUrl('');
+    }, 1000);
   }
 
 }

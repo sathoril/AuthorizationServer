@@ -13,6 +13,7 @@ export class MasterHeaderComponent implements OnInit {
   constructor(private router: Router, private oauthService: OAuthService) { }
 
   ngOnInit() {
+    debugger;
     let claims = this.oauthService.getIdentityClaims();
     
     if (!claims) return null;

@@ -18,20 +18,15 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  entrar(): void {
+  entrar() {
     this.authService.loadDiscoveryDocument().then(() => {
-      this.authService.tryLogin().then(() => {
-        debugger;
-        if(!this.authService.hasValidIdToken()) {
-          this.authService.initCodeFlow();
-        }
-      })
+      this.authService.initCodeFlow();
     });
   }
 
-  onFormKeydown($event){
+  onFormKeydown($event) {
     // Se o usuário apertar enter
-    if($event.keyCode == 13){
+    if ($event.keyCode == 13) {
       this.entrar();
     }
   }

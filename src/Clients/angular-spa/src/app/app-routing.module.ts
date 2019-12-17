@@ -20,8 +20,7 @@ const routes: Routes = [
   },
   {
     path: 'auth',
-    component: AuthComponent,
-    canActivate: [AutorizacaoProvider]
+    component: AuthComponent
   },
   {
     path: 'spa-client',

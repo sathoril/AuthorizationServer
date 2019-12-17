@@ -26,10 +26,10 @@ import { AuthConfig } from 'angular-oauth2-oidc';
       scope: 'openid profile resource-api',
 
       showDebugInformation: true,
+
       requireHttps: 'remoteOnly',
-      oidc: false
-      
-      
+
+      oidc: true
 
       // Not recommented:
       // disablePKCI: true,
