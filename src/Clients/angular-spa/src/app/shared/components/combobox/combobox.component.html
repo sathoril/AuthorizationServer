@@ -1,9 +1,0 @@
-<input class="dropdown-toggle btn btn-light custom-select" type="text" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-  id="texto" name="texto" (input)="filtrar($event.target.value)" [(ngModel)]="texto" (click)="onClick($event)" [disabled]="disabled" (blur)="onTextBlur(texto)" autocomplete="off"
-/>
-<input type="hidden" class="is-invalid" id="itemSelecionado" name="itemSelecionado" [(ngModel)]="ngModel"
-/>
-<div class="dropdown-menu" aria-labelledby="itemSelecionado" *ngIf="!disabled">
-  <a *ngFor="let item of itensFiltrados" class="dropdown-item" (click)="selecionar(item)">{{item[this.nomeItem]}}</a>
-  <a *ngIf="itens?.length > 10" class="dropdown-item disabled" (click)="onReticenciasClick($event)">...</a>
-</div>

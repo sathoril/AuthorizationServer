@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url: "http://localhost:5621/"
+  url: "http://docksv2/api-resource/"
 };
 
 /*

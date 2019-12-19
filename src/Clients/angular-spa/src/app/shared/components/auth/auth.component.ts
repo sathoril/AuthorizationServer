@@ -18,7 +18,7 @@ export class AuthComponent {
           this.router.navigateByUrl('/spa-client');
         else
           this.router.navigateByUrl('');
-    }, 1000);
+    }, 2000);
   }
 
 }

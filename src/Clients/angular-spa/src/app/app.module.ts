@@ -14,6 +14,7 @@ import { HttpInterceptorService } from './shared/services/http-interceptor/http-
 import { AutorizacaoProvider } from './shared/services/autorizacao-provider';
 import { AuthComponent } from './shared/components/auth/auth.component';
 import { StorageFactory } from './shared/utils/storage-factory';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,12 @@ import { StorageFactory } from './shared/utils/storage-factory';
     AppRoutingModule,
     LoginModule,
     SpaClientModule,
-    OAuthModule.forRoot()
+    OAuthModule.forRoot({
+      resourceServer: {
+        allowedUrls: [ environment.url ],
+        sendAccessToken: true
+      }
+    })
   ],
   providers: [
     {
