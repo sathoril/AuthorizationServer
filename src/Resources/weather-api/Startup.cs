@@ -21,11 +21,11 @@ namespace apiresource
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
+        {50
              services.AddCors(options => {
                 options.AddPolicy("CorsPolicy",
                     builder => builder
-                    .WithOrigins("http://localhost:4200")
+                    .WithOrigins("https://docksv2/spa-client")
                     //.AllowAnyOrigin()
                     .AllowAnyMethod()
                     .AllowAnyHeader()
@@ -39,7 +39,7 @@ namespace apiresource
                 .AddIdentityServerAuthentication(options =>
                 {
                     // base-address of your identityserver
-                    options.Authority = "http://localhost:5000";
+                    options.Authority = "https://docksv2/";
 
                     // name of the API resource
                     options.ApiName = "resource-api";
