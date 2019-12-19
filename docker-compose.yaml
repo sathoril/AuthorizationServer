@@ -14,10 +14,8 @@ services:
   build:
    context: ./
    dockerfile: ./src/Resources/weather-api/Dockerfile   
-#  identityserver-admin:
-#   container_name: identityserver-admin
-#   image: identityserver-admin
-#   build:
-#    context: ./
-#    dockerfile: ./src/AuthorizationServer/Dockerfile
 
+networks:
+ default:
+  external:
+   name: sistemas_reverse-proxy-net
