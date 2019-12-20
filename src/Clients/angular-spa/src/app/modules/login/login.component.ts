@@ -19,9 +19,7 @@ export class LoginComponent implements OnInit {
   }
 
   entrar() {
-    this.authService.loadDiscoveryDocument().then(() => {
-      this.authService.initCodeFlow();
-    });
+    this.authService.initCodeFlow();
   }
 
   onFormKeydown($event) {
