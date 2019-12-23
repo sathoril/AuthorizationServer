@@ -2,10 +2,10 @@ import { AuthConfig } from 'angular-oauth2-oidc';
 
     export const authCodeFlowConfig: AuthConfig = {
       // Url of the Identity Provider
-      issuer: 'http://identityserver-admin/',
+      issuer: 'https://docksv2',
 
       // URL of the SPA to redirect the user to after login
-      redirectUri: 'http://docksv2/spa-client/auth',
+      redirectUri: 'https://docksv2/spa-client/auth',
 
       // The SPA's id. The SPA is registerd with this id at the auth-server
       // clientId: 'server.code',

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url: "http://docksv2/api-resource/"
+  url: "https://docksv2/api-resource/"
 };
 
 /*
