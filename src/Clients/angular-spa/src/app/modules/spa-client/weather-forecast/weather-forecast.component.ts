@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherForecast } from './entities/weatherforecast';
-import { SpaClientService } from './spa-client.service';
+import { SpaClientService } from '../spa-client.service';
 
 @Component({
   selector: 'app-weather-forecast',

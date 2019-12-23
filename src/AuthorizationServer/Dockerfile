@@ -7,7 +7,7 @@ COPY ["src/AuthorizationServer/I4Admin.csproj", "I4Admin/"]
 WORKDIR I4Admin
 
 RUN dotnet restore "I4Admin.csproj"
-COPY . .
+COPY ["src/AuthorizationServer/","."]
 
 RUN dotnet build "I4Admin.csproj" -c Release -o /app/build
 

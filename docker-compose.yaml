@@ -1,6 +1,17 @@
 version: "3"
 
 services:
+ identityserver-admin: 
+  container_name: identityserver-admin
+  image: identityserver-admin
+  expose: 
+    - "80"
+  ports: 
+    - "5000:80"
+  build:
+    context: ./
+    dockerfile: ./src/AuthorizationServer/Dockerfile
+
  spa-client:
   container_name: spa_client
   image: spa_client
