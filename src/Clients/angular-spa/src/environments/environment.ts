@@ -1,10 +1,21 @@
+import { AuthConfig } from 'angular-oauth2-oidc';
+import { authCodeFlowConfig } from './auth.config';
+
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
   production: false,
-  url: "https://localhost:44385/"
+  url: "https://localhost:44385/",
+  issuer: "http://localhost:5000",
+  redirectUri: 'http://localhost:4200/auth',
+  clientId: 'spa-client',
+  responseType: 'code',
+  scope: 'openid profile resource-api',
+  showDebugInformation: true,
+  requireHttps: 'remoteOnly',
+  disablePKCE: true
 };
 
 /*

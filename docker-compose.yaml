@@ -23,16 +23,16 @@ services:
 #   ports: 
 #     - "4200:80"
 
-#  weather-api:
-#   container_name: weather-api
-#   image: weather-api
-#   build:
-#    context: ./
-#    dockerfile: ./src/Resources/weather-api/Dockerfile   
-#   expose: 
-#     - "80"
-#   ports: 
-#     - "5621:80"
+ weather-api:
+  container_name: weather-api
+  image: weather-api
+  build:
+   context: ./
+   dockerfile: ./src/Resources/weather-api/Dockerfile   
+  expose: 
+    - "80"
+  ports: 
+    - "5621:80"
 
 networks:
  default:
