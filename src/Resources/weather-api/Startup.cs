@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Logging;
 
 namespace apiresource
 {
@@ -25,7 +26,7 @@ namespace apiresource
              services.AddCors(options => {
                 options.AddPolicy("CorsPolicy",
                     builder => builder
-                    .WithOrigins("https://docksv2/spa-client")
+                    .WithOrigins("http://localhost:4200")
                     //.AllowAnyOrigin()
                     .AllowAnyMethod()
                     .AllowAnyHeader()
@@ -39,7 +40,7 @@ namespace apiresource
                 .AddIdentityServerAuthentication(options =>
                 {
                     // base-address of your identityserver
-                    options.Authority = "https://docksv2/";
+                    options.Authority = "http://localhost:5000/";
 
                     // name of the API resource
                     options.ApiName = "resource-api";
@@ -63,12 +64,15 @@ namespace apiresource
                 app.UseDeveloperExceptionPage();
             }
 
+
+            IdentityModelEventSource.ShowPII = true; 
+
+            app.UseAuthentication();
+
             app.UseCors("CorsPolicy");
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
-            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

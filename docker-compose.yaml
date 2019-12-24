@@ -12,19 +12,27 @@ services:
     context: ./
     dockerfile: ./src/AuthorizationServer/Dockerfile
 
- spa-client:
-  container_name: spa_client
-  image: spa_client
-  build:
-   context: ./
-   dockerfile: ./src/Clients/angular-spa/Dockerfile
+#  spa-client:
+#   container_name: spa_client
+#   image: spa_client
+#   build:
+#    context: ./
+#    dockerfile: ./src/Clients/angular-spa/Dockerfile
+#   expose: 
+#     - "80"
+#   ports: 
+#     - "4200:80"
 
- weather-api:
-  container_name: weather-api
-  image: weather-api
-  build:
-   context: ./
-   dockerfile: ./src/Resources/weather-api/Dockerfile   
+#  weather-api:
+#   container_name: weather-api
+#   image: weather-api
+#   build:
+#    context: ./
+#    dockerfile: ./src/Resources/weather-api/Dockerfile   
+#   expose: 
+#     - "80"
+#   ports: 
+#     - "5621:80"
 
 networks:
  default:

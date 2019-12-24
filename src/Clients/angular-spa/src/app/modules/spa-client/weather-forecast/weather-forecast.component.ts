@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherForecast } from './entities/weatherforecast';
-import { SpaClientService } from '../spa-client.service';
+import { WeatherForecastService } from './weather-forecast..service';
 
 @Component({
   selector: 'app-weather-forecast',
@@ -10,10 +10,10 @@ import { SpaClientService } from '../spa-client.service';
 export class WeatherForecastComponent implements OnInit {
   weatherForecast: Array<WeatherForecast>;
 
-  constructor(private spaClientService: SpaClientService) { }
+  constructor(private weatherForecastService: WeatherForecastService) { }
 
   ngOnInit() {
-    this.spaClientService.listar().subscribe((response: Array<WeatherForecast>) => {
+    this.weatherForecastService.listar().subscribe((response: Array<WeatherForecast>) => {
       this.weatherForecast = response;
     }, (err) => {
       console.log(err);

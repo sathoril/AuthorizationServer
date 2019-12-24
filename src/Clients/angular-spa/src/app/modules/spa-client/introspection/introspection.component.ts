@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SpaClientService } from '../spa-client.service';
 import { OAuthService } from 'angular-oauth2-oidc';
+import { IntrospectionService } from './introspection.service';
 
 @Component({
   selector: 'app-introspection',
@@ -9,9 +9,16 @@ import { OAuthService } from 'angular-oauth2-oidc';
 })
 export class InstrospectionComponent implements OnInit {
 
-  constructor(private spaClientService: SpaClientService, oAuthService: OAuthService) { }
+  constructor(private introspectionService: IntrospectionService, private oAuthService: OAuthService) { }
 
   ngOnInit() {
-    // this.oAuthService.
+    let accessToken = this.oAuthService.getAccessToken();
+
+    this.introspectionService.validarToken(accessToken).subscribe((response: any) => {
+      console.log(response);
+    }, (error) => {
+      console.log(error);
+    });;
+
   }
 }

@@ -6,6 +6,7 @@ import { AutorizacaoProvider } from './shared/services/autorizacao-provider';
 import { WeatherForecastComponent } from './modules/spa-client/weather-forecast/weather-forecast.component';
 import { AuthComponent } from './shared/components/auth/auth.component';
 import { AutenticacaoService } from './shared/services/autenticacao/autenticacao.service';
+import { InstrospectionComponent } from './modules/spa-client/introspection/introspection.component';
 
 
 const routes: Routes = [
@@ -30,6 +31,11 @@ const routes: Routes = [
       {
         path: 'weather-forecast',
         component: WeatherForecastComponent,
+        canActivate: [AutorizacaoProvider]
+      },
+      {
+        path: 'introspection',
+        component: InstrospectionComponent,
         canActivate: [AutorizacaoProvider]
       }
     ]

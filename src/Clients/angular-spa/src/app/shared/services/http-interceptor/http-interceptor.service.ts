@@ -17,7 +17,7 @@ export class HttpInterceptorService implements HttpInterceptor {
     if (this.moduleConfig.resourceServer.customUrlValidation) {
       return this.moduleConfig.resourceServer.customUrlValidation(url);
     }
-    
+
     if (this.moduleConfig.resourceServer.allowedUrls) {
       return !!this.moduleConfig.resourceServer.allowedUrls.find(u => url.startsWith(u));
     }
@@ -28,16 +28,12 @@ export class HttpInterceptorService implements HttpInterceptor {
   public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let url = req.url.toLowerCase();
 
-    if (!this.moduleConfig) return next.handle(req);
-    if (!this.moduleConfig.resourceServer) return next.handle(req);
-    if (!this.moduleConfig.resourceServer.allowedUrls) return next.handle(req);
-    if (!this.checkUrl(url)) return next.handle(req);
+    debugger;
 
-    let sendAccessToken = this.moduleConfig.resourceServer.sendAccessToken;
 
-    if (sendAccessToken) {
+    let token = this.authStorage.getItem('access_token');
 
-      let token = this.authStorage.getItem('access_token');
+    if (token) {
       let header = 'Bearer ' + token;
 
       let headers = req.headers
@@ -45,6 +41,25 @@ export class HttpInterceptorService implements HttpInterceptor {
 
       req = req.clone({ headers });
     }
+
+    if (!this.moduleConfig) return next.handle(req);
+    if (!this.moduleConfig.resourceServer) return next.handle(req);
+    if (!this.moduleConfig.resourceServer.allowedUrls) return next.handle(req);
+    // if (!this.checkUrl(url)) return next.handle(req);
+
+
+    // let sendAccessToken = this.moduleConfig.resourceServer.sendAccessToken;
+
+    // if (sendAccessToken) {
+
+    //   let token = this.authStorage.getItem('access_token');
+    //   let header = 'Bearer ' + token;
+
+    //   let headers = req.headers
+    //     .set('Authorization', header);
+
+    //   req = req.clone({ headers });
+    // }
 
     return next.handle(req);
 
